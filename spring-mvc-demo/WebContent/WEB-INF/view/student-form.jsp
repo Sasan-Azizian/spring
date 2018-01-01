@@ -13,12 +13,21 @@
 		<br><br>
 		Country :
 		<form:select path="country">
-			<form:option value="Brazil" lable="Brazil"></form:option>
-			<form:option value="France" lable="France"></form:option>
-			<form:option value="Germany" lable="Germany"></form:option>
-			<form:option value="India" lable="India"></form:option>
-			<form:option value="Iran" lable="Iran"></form:option>
+			<form:options items="${student.countryOptionjs}" />
+			
 		</form:select>
+		<br><br>
+		Favorite Language:
+			Java <form:radiobutton path="favoriteLanguage" value="Java"/>
+			Spring <form:radiobutton path="favoriteLanguage" value="Spring"/>
+			J2EE <form:radiobutton path="favoriteLanguage" value="J2EE"/>
+			C# <form:radiobutton path="favoriteLanguage" value="C#"/>
+		<br><br>
+		
+		Linux <form:checkbox   path="operatingSystem"  value="Linux"/>	
+		Mac Os <form:checkbox  path="operatingSystem"  value="Mac"/>	
+		Windows <form:checkbox  path="operatingSystem"  value="Ms Win"/>	
+		
 		<br><br>
 		<input type="submit" value="Submit"/>
 	</form:form>

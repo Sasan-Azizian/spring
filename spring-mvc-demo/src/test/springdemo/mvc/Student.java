@@ -7,6 +7,8 @@ public class Student {
 	private String firstName;
 	private String lastName;
 	private String country;
+	private String favoriteLanguage;
+	private String[] operatingSystem;
 	
 	private LinkedHashMap<String, String> countryOptionjs;
 	
@@ -57,6 +59,28 @@ public class Student {
 	public void setCountryOptionjs(LinkedHashMap<String, String> countryOptionjs) {
 		this.countryOptionjs = countryOptionjs;
 	}
+
+
+	public String getFavoriteLanguage() {
+		return favoriteLanguage;
+	}
+
+
+	public void setFavoriteLanguage(String favoriteLanguage) {
+		this.favoriteLanguage = favoriteLanguage;
+	}
+
+
+	public String[] getOperatingSystem() {
+		return operatingSystem;
+	}
+
+
+	public void setOperatingSystem(String[] operatingSystem) {
+		this.operatingSystem = operatingSystem;
+	}
+
+
 	
 	
 	
