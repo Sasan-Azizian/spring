@@ -40,6 +40,11 @@ public class QueryStudentDemo {
 			//display students
 			displayStudents(theStudents);
 			
+			//query students where email Like 'Sas'
+			System.out.println("\n\n query students where email Like 'gmail.com");
+			theStudents=session.createQuery("from Student s where s.firstName like '%r'").getResultList();
+			displayStudents(theStudents);
+			
 			
 			
 			//commit transaction
