@@ -30,6 +30,15 @@ public class UpdateStudentDemo {
 			//commit transaction
 			session.getTransaction().commit();
 			
+			//new cod for update
+			Session session2=factory.getCurrentSession();
+			session2.beginTransaction();
+			
+			System.out.println("\n\nUpdating email for all of the students..");
+			session2.createQuery("update Student s  set s.email='foo@uno.edu.com'").executeUpdate();
+			
+			session2.getTransaction().commit();
+			
 			System.out.println("Done!");
 			
 		}catch(Exception e) {
