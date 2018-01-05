@@ -38,14 +38,35 @@
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Email</th>
+				<th>Action</th>
 			</tr>
 			
-			<!-- ollp over print our customer -->
+			<!-- loop over print our customer -->
 			<c:forEach var="tempCustomer" items="${customers}">
+				
+				<!-- constract and "update" link with customer id -->
+				<c:url var="updateLink" value="/cust/showFormForUpdate">
+					<c:param name="customerId" value="${tempCustomer.id}" />
+				</c:url>
+				
+				<!-- constract and "DELETE" link with customer id -->
+				<c:url var="deleteLink" value="/cust/delete">
+					<c:param name="customerId" value="${tempCustomer.id}" />
+				</c:url>
+			
 				<tr>
 					<td>${tempCustomer.firstName}</td>
 					<td>${tempCustomer.lastName}</td>
 					<td>${tempCustomer.email}</td>
+					<td>
+						<!-- display the update link -->
+						<a href="${updateLink}">Update</a>
+						|
+						<a href="${deleteLink}"
+								 onclick="if(!(confirm('Are you sure for deleting this customer?'))) return false">Delete</a>
+						
+					</td>
+					
 				</tr>
 			</c:forEach>
 		 </table>

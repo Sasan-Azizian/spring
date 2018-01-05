@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import crm.entity.Customer;
 import crm.service.CustomerService;
@@ -64,6 +65,32 @@ public class CustomerController {
 			return "redirect:/cust/list";
 		}
 
+	}
+	
+	@GetMapping("/delete")
+	public String showFormForUpdate(@RequestParam("customerId") int theId,
+									Model theModel) {
+		
+		//delete customer from service
+		customerService.deleteCustomer(theId);
+		
+		//send over to our form
+		return "redirect:/cust/list";
+		
+	}
+	
+	@GetMapping("/showFormForUpdate")
+	public String sdelete(@RequestParam("customerId") int theId,
+									Model theModel) {
+		
+		//get customer from service
+		Customer theCustomer=customerService.getCustomers(theId);
+		
+		//set customer as model attribute
+		theModel.addAttribute("customer", theCustomer);
+		
+		//send over to our form
+		return "customer-form";
 		
 	}
 	
