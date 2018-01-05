@@ -18,7 +18,7 @@
 	
 
 	<div id="wrapper">
-		<div id="heade">
+		<div id="header">
 			<h2>CRM - CUsrome Relationship MAnager</h2>
 		</div>
 	</div>
