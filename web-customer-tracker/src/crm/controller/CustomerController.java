@@ -2,10 +2,18 @@ package crm.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import crm.entity.Customer;
@@ -34,5 +42,35 @@ public class CustomerController {
 		
 		
 		return "list-customers";
+	}
+	
+	@GetMapping("/showFormForAdd")
+	public String showFormForAdd(Model theModel) {
+		
+		theModel.addAttribute("customer", new Customer());
+		return "customer-form";
+	}
+	
+	@PostMapping("/saveCustomer")
+	public String saveCustomer(@Valid @ModelAttribute("customer") Customer theCustomer,
+			BindingResult theBindingResult) {
+		
+		System.out.println("Binding Result: "+theBindingResult);
+		if(theBindingResult.hasErrors()) {
+			return "customer-form";
+		}else {
+			// save the customer using our service
+			customerService.saveCustome(theCustomer);
+			return "redirect:/cust/list";
+		}
+
+		
+	}
+	
+	@InitBinder
+	public void initBinder(WebDataBinder dataBinder) {
+		StringTrimmerEditor str=new StringTrimmerEditor(true);
+		dataBinder.registerCustomEditor(String.class, str);
+		
 	}
 }

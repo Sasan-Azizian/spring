@@ -14,6 +14,9 @@
 		href="${pageContext.request.contextPath}/resources/css/style.css">
 </head>
 <body>
+
+	
+
 	<div id="wrapper">
 		<div id="heade">
 			<h2>CRM - CUsrome Relationship MAnager</h2>
@@ -22,6 +25,13 @@
 	
 	<div id="container">
 		<div id="content">
+		
+			<!-- add buttom custome -->
+			<input type="button" value="Add Customer"  
+					onclick="window.location.href='showFormForAdd'; return false;"
+			class="add-button"
+			/>
+			
 		<!-- add html table here.. -->
 		<table>
 			<tr>
