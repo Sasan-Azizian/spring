@@ -12,7 +12,8 @@ public class MyDemoLoginAspect {
 	
 	//let's strat with an @Before advice
 	
-	@Before("execution(public void addAcount())")
+	
+	@Before("execution(public void com.aopdemo.dao.AccountDAO.addAcount())")
 	public void beforeAddAccountAdvice() {
 		
 		System.out.println("\n=====>>  Executing @Before advice on addAccount()");
