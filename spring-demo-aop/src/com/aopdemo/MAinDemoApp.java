@@ -19,15 +19,10 @@ public class MAinDemoApp {
 		
 		//call the bussiness
 		theAccountDAO.addAcount();
-		theMembershipDAO.addAcount();
+		theMembershipDAO.addSillyMember();;
 		
 		
-		//do it again
-		System.out.println("\n let's call it again");
 		
-		//call teh bussiness method again
-		theAccountDAO.addAcount();
-		theMembershipDAO.addAcount();
 		
 		
 		//close the context
