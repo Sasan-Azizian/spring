@@ -15,7 +15,10 @@ public class MyDemoLoginAspect {
 	
 	//@Before("execution(public void com.aopdemo.dao.AccountDAO.addAcount())")
 	//@Before("execution(public void add*())")
-	@Before("execution(* add*())")
+	//@Before("execution(* add*(com.aopdemo.Account))")
+	
+	//@Before("execution(* add*(..))") //this will work for more parameters  
+	@Before("execution(* com.aopdemo.dao.*.*(..))")
 	public void beforeAddAccountAdvice() {
 		
 		System.out.println("\n=====>>  Executing @Before advice on addAccount()");

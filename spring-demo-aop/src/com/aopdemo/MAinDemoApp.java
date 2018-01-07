@@ -18,8 +18,12 @@ public class MAinDemoApp {
 		MembershipDAO theMembershipDAO=context.getBean("membershipDAO", MembershipDAO.class);
 		
 		//call the bussiness
-		theAccountDAO.addAcount();
-		theMembershipDAO.addSillyMember();;
+		theAccountDAO.addAcount(new Account(),true);
+		theAccountDAO.doWork();
+		
+		
+		theMembershipDAO.addSillyMember();
+		theMembershipDAO.gorToSleeo();
 		
 		
 		
