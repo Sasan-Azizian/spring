@@ -143,8 +143,7 @@ public class MyDemoLoginAspect {
 			//log the exception
 			myLogger.warning(e.getMessage());
 			
-			//give user a custome message
-			result="Major accident! But no worries, your private helicopter is on the way! ";
+			throw e;
 		}
 		myLogger.info("result: ** "+result);
 		
