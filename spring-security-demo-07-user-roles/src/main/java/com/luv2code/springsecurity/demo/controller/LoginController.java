@@ -12,4 +12,11 @@ public class LoginController {
 		//System.out.println(">>>>>>>>>>>**************");
 		return "fancy-login";
 	}
+	
+	//add request mapping for access denied
+	@GetMapping("/access-denied")
+	public String showAccessDenied() {
+		//System.out.println(">>>>>>>>>>>**************");
+		return "access-denied";
+	}
 }
